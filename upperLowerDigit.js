@@ -2,11 +2,12 @@ const assert = require("assert");
 
 function upperLowerDigit(input) {
   const c = input[0];
-  if (c.toUpperCase() === c) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  if (alphabet.includes(c.toLowerCase()) && c.toUpperCase() === c) {
     return "upper";
-  } else if (c.toLowerCase() === c) {
+  } else if (alphabet.includes(c) && c.toLowerCase() === c) {
     return "lower";
-  } else if (typeof parseInt(c) === typeof 2) {
+  } else if (!isNaN(parseInt(c))) {
     return "digit";
   } else {
     return "other";
